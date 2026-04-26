@@ -1,30 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Camera, Leaf } from "lucide-react";
 
 export default function Home() {
-  const router = useRouter();
-  const [language, setLanguage] = useState<"en" | "ta">("en"); // en = English, ta = Tamil
+  const [language, setLanguage] = useState<"en" | "ta">("en");
 
   const texts = {
     en: {
-      title: "AgriGuard 🌱",
+      title: "AgriGuard",
       subtitle: "AI Crop Disease Detector for Tamil Nadu Farmers",
       button: "Upload Crop Photo",
       tagline: "Helpful for Paddy, Groundnut, Sugarcane & more",
       weatherTitle: "Today's Weather Tip",
-      weatherInfo: "Villupuram: Rain expected – delay spraying",
+      weatherInfo: "Villupuram: Rain expected - delay spraying",
       weatherAdvice: "Check local weather before applying pesticides"
     },
     ta: {
-      title: "அக்ரிகார்ட் 🌱",
+      title: "அக்ரிகார்ட்",
       subtitle: "தமிழ்நாடு விவசாயிகளுக்கான AI பயிர் நோய் கண்டறியும் கருவி",
       button: "பயிர் புகைப்படத்தை பதிவேற்றவும்",
       tagline: "நெல், வேர்க்கடலை, கரும்பு மற்றும் பலவற்றுக்கு உதவியாக",
-      weatherTitle: "இன்றைய வானிலை குறிப்பு",
-      weatherInfo: "விழுப்புரம்: மழை எதிர்பார்க்கப்படுகிறது – தெளிப்பை தாமதப்படுத்துங்கள்",
+      weatherTitle: "இன்றைய வானில் குறிப்பு",
+      weatherInfo: "விழுப்புரம்: மழை எதிர்பார்க்கப்படுகிறது - தெளிப்பை தாமதப்படுத்துங்கள்",
       weatherAdvice: "பூச்சிக்கொல்லைப் பயன்படுத்துவதற்கு முன் உள்ளூர்வானிலையை சரிபார்க்கவும்"
     }
   };
@@ -38,13 +37,13 @@ export default function Home() {
         <h1 className="text-5xl font-bold text-green-800 mb-2">{t.title}</h1>
         <p className="text-xl text-green-700 mb-8">{t.subtitle}</p>
 
-        <button
-          onClick={() => router.push("/upload")}
-          className="bg-green-600 hover:bg-green-700 text-white text-xl font-medium px-10 py-4 rounded-2xl flex items-center gap-3 mx-auto shadow-lg cursor-pointer"
+        <Link
+          href="/upload"
+          className="bg-green-600 hover:bg-green-700 text-white text-xl font-medium px-10 py-4 rounded-2xl flex items-center gap-3 mx-auto shadow-lg inline-block no-underline"
         >
           <Camera className="w-6 h-6" />
           {t.button}
-        </button>
+        </Link>
 
         <p className="mt-6 text-green-600">{t.tagline}</p>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowLeft, Upload, Camera, Leaf, Droplets, AlertTriangle, CheckCircle, Loader2 } from "lucide-react";
 
 interface DiseaseResult {
@@ -109,13 +110,13 @@ export default function UploadPage() {
   return (
     <div className="min-h-screen bg-green-50 p-4">
       <div className="flex justify-between items-center mb-6">
-        <button
-          onClick={() => window.history.back()}
-          className="flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors"
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors no-underline"
         >
           <ArrowLeft className="w-5 h-5" />
           <span className="font-medium">{t.back}</span>
-        </button>
+        </Link>
         <div className="flex gap-2">
           <button
             onClick={() => setLanguage("en")}
