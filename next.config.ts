@@ -1,13 +1,11 @@
-import type { NextConfig } from "next";
-import withPWA from "next-pwa";
-
-const nextConfig: NextConfig = {
-  turbopack: {},
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  // Add these only if you really need them later
+  // images: {
+  //   domains: ['example.com'],
+  // },
 };
 
-export default withPWA({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-})(nextConfig);
+export default nextConfig;
+
